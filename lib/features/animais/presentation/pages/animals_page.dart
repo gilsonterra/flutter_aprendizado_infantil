@@ -66,22 +66,11 @@ class _AnimalsPageState extends State<AnimalsPage> {
       child: SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Animais 🐾',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  shadows: [
-                    Shadow(
-                      color: Colors.black45,
-                      blurRadius: 4,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SizedBox(
+                width: 250, // limite máximo de largura
+                child: Image.asset('animais_title.png'),
               ),
             ),
             Expanded(

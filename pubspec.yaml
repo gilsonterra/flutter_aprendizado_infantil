@@ -54,21 +54,23 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  fonts:
+    - family: PressStart2P
+      fonts:
+        - asset: assets/fonts/PressStart2P-Regular.ttf
   uses-material-design: true
   assets:
+    - assets/animais_title.png
     - assets/animals/cao.png
-    - assets/animals/cavalo.png
+    - assets/animals/girafa.png
     - assets/animals/coruja.png
     - assets/animals/gato.png
     - assets/animals/leao.png
     - assets/animals/macaco.png
-    - assets/animals/ra.png
-    - assets/animals/tartaruga.png
-    - assets/animals/vaca.png
-    - assets/animals/zebra.png
+    - assets/animals/sapo.png
+    - assets/animals/passaro.png
+    - assets/animals/peixe.png
+    - assets/animals/elefante.png
     - assets/numbers/0.png
     - assets/numbers/1.png
     - assets/numbers/2.png
@@ -83,7 +85,7 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/animals/cao.png"
+  image_path: "assets/animals/elefante.png"
   min_sdk_android: 21
 
   # To add assets to your application, add an assets section, like this:

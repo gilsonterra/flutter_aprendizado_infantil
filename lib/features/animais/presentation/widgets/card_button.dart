@@ -19,23 +19,23 @@ class CardButton extends StatefulWidget {
 }
 
 class _CardButtonState extends State<CardButton> {
-  double _scale = 1.0;
+  Color _color = Colors.transparent;
 
   void _onTapDown(TapDownDetails details) {
     setState(() {
-      _scale = 0.9;
+      _color = Color.fromRGBO(186, 110, 63, 1);
     });
   }
 
   void _onTapUp(TapUpDetails details) {
     setState(() {
-      _scale = 1.0;
+      _color = Colors.transparent;
     });
   }
 
   void _onTapCancel() {
     setState(() {
-      _scale = 1.0;
+      _color = Colors.transparent;
     });
   }
 
@@ -46,37 +46,70 @@ class _CardButtonState extends State<CardButton> {
       onTapDown: _onTapDown,
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
-      child: AnimatedScale(
-        scale: _scale,
+      child: AnimatedContainer(
+        color: _color,
         duration: Duration(milliseconds: 100),
         curve: Curves.easeInOut,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white70.withOpacity(0.8),
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 4)],
-            border: Border.all(color: Colors.white, width: 10),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Image.asset(widget.imagem, fit: BoxFit.contain),
+        child: SizedBox(
+          height: 150,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white70,
+              border: Border(
+                top: BorderSide(
+                  color: Color.fromRGBO(23, 32, 15, 1.0),
+                  width: 10,
+                ),
+                left: BorderSide(
+                  color: Color.fromRGBO(23, 32, 15, 1.0),
+                  width: 10,
+                ),
+                right: BorderSide(
+                  color: Color.fromRGBO(105, 116, 99, 1.0),
+                  width: 10,
+                ),
+                bottom: BorderSide(
+                  color: Color.fromRGBO(105, 116, 99, 1.0),
+                  width: 10,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
-                widget.nome,
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w800,
-                  color: widget.textColor.colors[1],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.transparent,
+                    padding: const EdgeInsets.all(4),
+                    margin: const EdgeInsets.all(4),
+                    child: Image.asset(widget.imagem, fit: BoxFit.contain),
+                  ),
                 ),
-              ),
-              SizedBox(height: 8),
-            ],
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
+                  child: Text(
+                    widget.nome.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 3.0,
+                      color: Colors.deepOrangeAccent,
+                      fontFamily: 'PressStart2P',
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2, 2),
+                          color: Colors.black87,
+                          blurRadius: 0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
